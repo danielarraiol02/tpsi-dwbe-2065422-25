@@ -72,7 +72,37 @@ function countOccurrences(str, letter_to_search){
     }
     return count
 }
-var str = "Hoje e domingo";
+//var str = "Hoje e domingo";
+//console.log(countOccurrences(str, "e"));
 
-console.log(countOccurrences(str, "e"));
+function drawRectangle(height, width){
 
+    var linha_largura = "";
+    var linha_altura = "";
+
+    console.log("Desenha retangulos");
+    for (let i = 0; i < width; i++){
+        linha_largura += "*";
+    }
+    for (let j = 0; j < height; j++){
+        linha_altura += "*";
+        console.log(linha_largura);
+    }
+    
+}
+
+function drawTriangle(width){
+
+    var linha_largura = "";
+
+    console.log("Desenha triangulos");
+    for (let i = 0; i < width; i++){
+        linha_largura += "*";
+        console.log(linha_largura);
+    }
+  
+    
+}
+
+drawRectangle(5, 5);
+drawTriangle(5);
