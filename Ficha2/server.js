@@ -42,5 +42,37 @@ function reverseStrings(str){
     return reversedStr;
 }
 
+// var str = "Hoje e domingo";
+// console.log(reverseStrings(str));
+
+function countVowels(str){
+
+    // Fazer ifs com OUs para ser + rapido (menos iteraçoes)
+
+    const vowels = ["a","e","i","o","u"];
+    var nvowels = 0;
+
+    for (let i = 0; i < str.length; i++){
+        if (vowels.includes(str[i].toLowerCase()))
+            nvowels+=1;
+    }
+    return nvowels;
+}
+
+//var str = "Hoje e domingo";
+//console.log(countVowels(str));
+
+function countOccurrences(str, letter_to_search){
+
+    var count = 0;
+
+    for (let i = 0; i < str.length; i++){
+        if (str[i].toLowerCase() == letter_to_search.toLowerCase())
+            count+=1;
+    }
+    return count
+}
 var str = "Hoje e domingo";
-console.log(reverseStrings(str));
+
+console.log(countOccurrences(str, "e"));
+
