@@ -100,9 +100,31 @@ function drawTriangle(width){
         linha_largura += "*";
         console.log(linha_largura);
     }
-  
-    
 }
 
-drawRectangle(5, 5);
-drawTriangle(5);
+/*
+00, 01, 02, 03
+10          13
+20          23
+30, 31, 32, 33
+*/
+
+function drawBoxOutline(width, height){
+
+    for (let i = 0; i < height; i++){
+        var linha_largura = "";
+        for (let j = 0; j < width; j++){
+            if (i == 0 || i == height-1 || j == 0 || j == width-1){
+                linha_largura += "*";
+            }
+            else{
+                linha_largura += " ";
+            }       
+        }
+        console.log(linha_largura);
+    }
+}
+
+//drawRectangle(5, 5);
+//drawTriangle(5);
+drawBoxOutline(3, 5);
