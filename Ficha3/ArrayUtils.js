@@ -1,5 +1,5 @@
 var ArrayUtils = {
-  boolean: function isEmpty(array) {
+  boolean: function (array) {
     if (array.length == 0) {
       // return array.length == 0;
       return true;
@@ -7,7 +7,7 @@ var ArrayUtils = {
       return false;
     }
   },
-  max: function maxArray(array) {
+  max: function (array) {
     if (this.boolean(array)) {
       return 0;
     } else {
@@ -21,7 +21,7 @@ var ArrayUtils = {
       return max;
     }
   },
-  min: function minArray(array) {
+  min: function (array) {
     min = array[0];
 
     for (let i = 0; i < array.length; i++) {
@@ -31,43 +31,56 @@ var ArrayUtils = {
     }
     return min;
   },
-  sum: function sumArray(array) {
+  sum: function (array) {
     var res = 0;
     for (let i = 0; i < array.length; i++) {
       res += array[i];
     }
     return res;
   },
-  average: function avgArray(array) {
+  average: function (array) {
     var sum = this.sum(array);
     var avg = sum / array.length;
     return avg;
   },
-  indexOf: function indexOfArray(array, index) {
-    return array[index];
-  },
-  subArray: function subArray(array, start, end) {
-    var newArray = [];
+  indexOf: function (array, valor) {
     for (let i = 0; i < array.length; i++) {
-      if (i >= start && i <= end) {
-        // start <= i <= end
-        newArray.push(array[i]);
+      if (array[i] == valor) {
+        return i;
       }
     }
-    return newArray;
+    return -1;
   },
-  compareLength: function isSameLength(array, array_to_compare) {
-    if (array.length == array_to_compare.length) return true;
-    else return false;
+  // subArray: function (array, start, end) {
+  //   var newArray = [];
+  //   for (let i = 0; i < array.length; i++) {
+  //     if (i >= start && i <= end) {
+  //       // start <= i <= end
+  //       newArray.push(array[i]);
+  //     }
+  //   }
+  //   return newArray;
+  // },
+  subArray: function (array, start, end) {
+    var sub = [];
+    for (let i = start; i <= end; i++) {
+      sub.push(array[i]);
+    }
+    return sub;
   },
-  reverse: function reverseArray(array) {
+  compareLength: function (array, array_to_compare) {
+    // if (array.length == array_to_compare.length) return true;
+    // else return false;
+    return array.length == array_to_compare.length;
+  },
+  reverse: function (array) {
     var newArray = [];
     for (let i = array.length - 1; i >= 0; i--) {
       newArray.push(array[i]);
     }
     return newArray;
   },
-  swap: function swapArray(array, index, index_to_swap) {
+  swap: function (array, index, index_to_swap) {
     const temp = array[index];
     array[index] = array[index_to_swap];
     array[index_to_swap] = temp;
@@ -82,11 +95,15 @@ var ArrayUtils = {
       }
     }
   },
+  contains2: function (array, value_to_search) {
+    return this.indexOf(array, value_to_search) != -1;
+  },
   concatenate: function (array, array_to_add) {
+    var copy = array.copyWithin(0);
     for (let i = 0; i < array_to_add.length; i++) {
-      array.push(array_to_add[i]);
+      copy.push(array_to_add[i]);
     }
-    return array;
+    return copy;
   },
 };
 
