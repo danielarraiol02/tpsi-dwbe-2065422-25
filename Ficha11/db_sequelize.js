@@ -19,7 +19,7 @@ Loan.belongsTo(Book, {foreignKey: 'book_id'});
 
 async function addDBdata() {
     try {
-        await sequelize.sync({ force: true }); 
+        await sequelize.sync({ force: false }); 
 
         const users = await User.bulkCreate([
             {
